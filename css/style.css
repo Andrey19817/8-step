@@ -1,0 +1,94 @@
+*,body{
+    margin: 0;
+    padding: 0;
+    font-family: serif;
+    font-size: 18px;
+}
+html{
+    height: 100%;
+}
+
+@font-face {
+	font-family: 'GolosTextWebBlack';
+	src:
+		url('../fonts/Golos-Text_Black.woff2') format('woff2'),
+		url('../fonts/Golos-Text_Black.woff') format('woff'),
+        url('../fonts/Golos-Text_Black.ttf') format('ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+body{
+    /* outline: 1px solid red; */
+    background-image: url(../img/Games_Duck_Hunt_Nintendo_Dendy_Nes_025749_9.jpg);
+    min-height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 bottom;
+    counter-reset: chot;
+    position: relative;
+    overflow: hidden;
+    cursor: crosshair;
+}
+.listShot{
+    font-size: 30px;
+    color: white;
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.listShot::after{
+    content:counter(shot);
+}
+input[type=checkbox]:checked{
+    counter-increment: shot;
+}
+input[type=checkbox]{
+    visibility: hidden;
+}
+input[type=checkbox]:checked +.duck{
+    display: none;
+}
+.duck{
+    /* outline: 1px solid red; */
+    display: block;
+    width: 62px;
+    height: 56px;
+    position: absolute;
+    top: 50%;
+    left: -80px;
+    cursor: crosshair;
+}
+
+@keyframes road1{
+    0%{top: 50%; left: -80px;}
+    20%{top: 30%;left: 20%;}
+    40%{top: 40%;left: 60%;transform: rotate(180deg);}
+    60%{top: 70%;left: 80%;transform: rotate(0deg);}
+    80%{top:20%;left: 50%;}
+    100%{top: 50%;left: 100%;}
+}
+@keyframes road2{
+    0%{top: 50%;left:-80px;}
+    20%{top:20%;left:10%;transform: rotate(180deg)}
+    40%{top:90%;left:10%;transform: rotate(0)}
+    60%{top:30%;left:80%;transform: rotate(180deg)}
+    80%{top:80%;left:50%;transform: rotate(0)}
+    100%{top:20%;left:100%;}
+}
+.duck1{
+    animation:road1 15s infinite;
+}
+.duck2{
+    animation: road2 15s 2s infinite;
+}
+.duck3{
+    animation: road1 15s 5s infinite;
+}
+.duck4{
+    animation: road2 15s 9s infinite;
+}
+.duck5{
+    animation: road1 15s 12s infinite;
+}
